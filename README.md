@@ -44,39 +44,43 @@ Para cada repositório, escolha uma prática ou dado de teste relevante e expliq
 
 ## Respostas
 
-### Repositório 1 
+### Repositório 1
 
-Repositório:[ https://github.com/airbnb/lottie-ios]
+- **Repositório:** https://github.com/airbnb/lottie-ios
+- **URL TestMiner:** https://andrehora.github.io/testminer/#airbnb/lottie-ios
 
-URL TestMiner: [https://andrehora.github.io/testminer/#airbnb/lottie-ios]
+**Explicação:**
 
-Explicação: No `lottie-ios`, uma biblioteca que renderiza animações do After Effects
+No `lottie-ios`, uma biblioteca que renderiza animações do After Effects
 no iOS, escolhi analisar a prática de **teste de snapshot**. Segundo o
 TestMiner, o projeto tem 315 arquivos de código-fonte e 244 arquivos de
 snapshot, contra apenas 22 testes tradicionais e 205 test helpers.
 
-Um teste de snapshot gera a saída do código e compara com uma imagem de referência salva anteriormente.
-Se o resultado mudar, o teste falha, e o desenvolvedor decide se foi um
-erro ou uma mudança intencional. Essa prática combina bem com o projeto,
-porque o resultado de uma animação é visual e seria difícil verificá-lo
-com asserts comuns. Os test helpers provavelmente existem para
-carregar as animações e gerar os snapshots, o que explica o número alto
-deles.
+Um teste de snapshot gera a saída do código e compara com uma imagem de
+referência salva anteriormente. Se o resultado mudar, o teste falha, e o
+desenvolvedor decide se foi um erro ou uma mudança intencional. Essa
+prática combina bem com o projeto, porque o resultado de uma animação é
+visual e seria difícil verificá-lo com asserts comuns. Os test helpers
+provavelmente existem para carregar as animações e gerar os snapshots, o
+que explica o número alto deles.
+
+![Overview e Test Location do lottie-ios](lottie-overview.png)
 
 ### Repositório 2
 
-Repositório: [https://github.com/airbnb/DeepLinkDispatch]
+- **Repositório:** https://github.com/airbnb/DeepLinkDispatch
+- **URL TestMiner:** https://andrehora.github.io/testminer/#airbnb/DeepLinkDispatch
 
-URL TestMiner: [https://andrehora.github.io/testminer/#airbnb/DeepLinkDispatch]
+**Explicação:**
 
-Explicação: O `DeepLinkDispatch` é uma biblioteca Android para tratar deep links
+O `DeepLinkDispatch` é uma biblioteca Android para tratar deep links
 com anotações. Nele, escolhi analisar a prática de **benchmarks**.
 O TestMiner mostra 14 arquivos de benchmark, ao lado de 31 testes
 tradicionais e 92 arquivos de código-fonte.
 
-Um benchmark é um teste que mede desempenho, e não se o resultado está correto. 
-Isso faz sentido numa biblioteca que resolve deep links dentro de
-apps, porque lentidão nessa etapa afeta a experiência do usuário.
+Um benchmark é um teste que mede desempenho, e não se o resultado está
+correto. Isso faz sentido numa biblioteca que resolve deep links dentro
+de apps, porque lentidão nessa etapa afeta a experiência do usuário.
 
 Na visão Test Location, os benchmarks ficam separados do resto, nos
 módulos `sample-benchmark` e `sample-benchmarkable-library`, o que
@@ -85,4 +89,7 @@ Test History, os benchmarks passam de 0 na versão 3.0.0 para 14
 na versão 5.4.3 e permanecem em 14 na 7.2.2. Isso indica que o projeto
 passou a medir desempenho a partir de certo ponto e manteve esse
 conjunto depois, enquanto a quantidade de testes funcionais continuou
-crescendo (de 7 para 40).
+crescendo (de 7 para 40). O número 31 do Overview e o 40 do histórico
+vêm de visões diferentes (versão atual do `main` e releases).
+
+![Overview e Test Location do DeepLinkDispatch](DeepLinkDispatch-overview.png)
